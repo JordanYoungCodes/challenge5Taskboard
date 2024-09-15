@@ -15,78 +15,74 @@
   <title>Task Board</title>
 </head>
 
+<
 <body>
   <header class="p-4 mb-4 text-center border-bottom border-5">
     <h1 class="display-3">Task Board</h1>
     <p class="lead">A simple Kanban board for task management</p>
   </header>
+
   <div class="container">
     <div class="text-center mb-5">
       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
     </div>
-    <!-- Todo: Create a modal with a form to add tasks -->
+
+    <!-- Modal with a form to add tasks -->
     <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+            <h5 class="modal-title" id="formModalLabel">Add Task</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="input-group mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Task Title</label><br>
-              <input type="text" class="form-control mx-3" id="input1" placeholder="Username" aria-label="Username">
-              <label for="exampleFormControlInput1" class="form-label">Task Date</label>
-              <div type="text" class="form-control mb-3" id="datepicker" autocomplete="off"></div>
+            <div class="mb-3">
+              <label for="task-title" class="form-label">Task Title</label>
+              <input type="text" class="form-control" id="task-title" placeholder="Task Title" aria-label="Task Title">
             </div>
 
-            <div class="input-group">
+            <div class="mb-3">
+              <label for="task-due-date" class="form-label">Task Due Date</label>
+              <input type="text" class="form-control" id="task-due-date" autocomplete="off">
+            </div>
 
-              <textarea class="form-control " aria-label="With textarea">Task Notes</textarea>
+            <div class="mb-3">
+              <label for="task-desc" class="form-label">Task Description</label>
+              <textarea class="form-control" id="task-desc" placeholder="Task Notes"></textarea>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary createTC">Save changes</button>
+            <button type="button" id="save-task-btn"class="btn btn-primary createTC" data-bs-dismiss="modal">Save Task</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Swim lanes -->
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
-        <div id="to-do tccontainer" class="card border-light mb-3 lane flex-grow-1 drag">
+        <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">To Do</h2>
           </div>
-          <div class="card-body bg-light ui-widget-content  ">
-            <div id="todo-cards">
-              <div class="card draggable" style="width: 30rem;">
-                <div class="card-header ">
-                  Featured
-                </div>
-                <div class="card-body">
-                  This is some text within a card body.
-                  <br>
-                  <button type="button" class="btn btn-danger m-3">Danger</button>
-                </div>
-
-              </div>
-            </div>
+          <div class="card-body bg-light">
+            <div id="todo-cards"></div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-4 d-flex lane">
-        <div id="in-progress" class="card border-light mb-3 lane flex-grow-1 ">
+      <div class="col-12 col-lg-4 d-flex">
+        <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">In Progress</h2>
           </div>
-          <div class="card-body bg-light dropArea">
+          <div class="card-body bg-light">
             <div id="in-progress-cards"></div>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-4 d-flex">
-        <div id="done" class="card border-light mb-3 lane flex-grow-1 dropArea">
+        <div id="done" class="card border-light mb-3 lane flex-grow-1">
           <div class="card-header bg-white">
             <h2 class="card-title mb-1">Done</h2>
           </div>
