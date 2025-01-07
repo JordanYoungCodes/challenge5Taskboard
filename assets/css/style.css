@@ -17,18 +17,27 @@ body {
 
 
 .highlight-droparea:hover {
-  background-color: #d6ec0f;
-  border: 2px dashed #007bff;
+  background: #d6ec0f;
+  border: 2px solid #003166;
   transition: background-color 0.3s ease, border 0.3s ease;
 }
 
 .task-card:hover {
   cursor: grab;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.534);
   transform: scale(1.02);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .task-card.ui-draggable-dragging {
   background-color: #f0f8ff; 
-  opacity: 0.8;
+  opacity: 0.8; 
+  border: 2px solid black;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-droparea {
+  background-color: #e7f3ff; /* Subtle highlight */
+  border: 2px solid rgb(0, 0, 0);
+  transition: background-color 0.3s ease, border 0.3s ease;
 }

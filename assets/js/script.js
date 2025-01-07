@@ -33,7 +33,7 @@ function createTaskCard(task) {
   // set card background color based on due date
   if (task.dueDate && task.status !== 'done') {
     const now = dayjs();
-    const taskDueDate = dayjs(task.dueDate, 'DD/MM/YYYY');
+    const taskDueDate = dayjs(task.dueDate, 'MM/DD/YYYY');
     if (now.isSame(taskDueDate, 'day')) {
       taskCard.addClass('bg-warning text-white');
     } else if (now.isAfter(taskDueDate)) {
@@ -153,7 +153,7 @@ function makeDraggable() {
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
   $('#task-due-date').datepicker({
-    dateFormat: 'dd/mm/yy'
+    dateFormat: 'mm/dd/yy'
   });
 
   renderTaskList(); 
@@ -162,13 +162,6 @@ $(document).ready(function () {
 
   $('.createTC').on('click', handleAddTask);
 });
-
-
-
-
-
-
-
 
 
 
